@@ -1,38 +1,43 @@
 (function() {
-  'use strict';
+    'use strict';
 
-  angular.element(document).ready(function() {
-    angular.bootstrap(document, ['app']);
-  });
+    angular.element(document).ready(function() {
+        angular.bootstrap(document, ['app']);
+    });
 
-  function config($stateProvider, $urlRouterProvider, $logProvider, $httpProvider) {
-    $urlRouterProvider.otherwise('/');
-    $logProvider.debugEnabled(true);
-    $httpProvider.interceptors.push('httpInterceptor');
-  }
+    function config($stateProvider, $urlRouterProvider, $logProvider, $httpProvider) {
+        $urlRouterProvider.otherwise('/');
+        $logProvider.debugEnabled(true);
+        $httpProvider.interceptors.push('httpInterceptor');
+    }
 
-  function MainCtrl($log) {
-    $log.debug('MainCtrl laoded!');
-  }
+    function cake(yummy) {
+        this.taste = yummy;
+    }
 
-  function run($log) {
-    $log.debug('App is running!');
-  }
+    function MainCtrl($log) {
+        $log.debug('MainCtrl laoded!');
+    }
 
-  angular.module('app', [
-      'ui.router',
-      'home',
-      'getting-started',
-      'common.header',
-      'common.footer',
-      'common.services.data',
-      'common.directives.version',
-      'common.filters.uppercase',
-      'common.interceptors.http',
-      'templates'
+    function run($log) {
+        $log.debug('App is running!');
+    }
+
+    angular.module('app', [
+        'ui.router',
+        'home',
+        'getting-started',
+        'common.header',
+        'common.footer',
+        'common.services.data',
+        'common.directives.version',
+        'common.filters.uppercase',
+        'common.interceptors.http',
+        'templates'
     ])
     .config(config)
     .run(run)
     .controller('MainCtrl', MainCtrl)
     .value('version', '1.0.1');
+
 })();

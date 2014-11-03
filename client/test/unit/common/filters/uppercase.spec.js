@@ -1,17 +1,17 @@
 (function() {
-  'use strict';
+    'use strict';
 
-  describe('Filters: uppercase', function() {
+    describe('Filters: uppercase', function() {
 
-    var filter;
-    beforeEach(module('common.filters.uppercase'));
-    beforeEach(inject(function($filter) {
-      filter = $filter;
-    }));
+        var filter;
+        beforeEach(module('common.filters.uppercase'));
+        beforeEach(inject(function($filter) {
+            filter = $filter;
+        }));
 
-    it('should create an uppercase string', function() {
-      expect(filter('uppercase')('hello')).toEqual('HELLO');
+        it('should create an uppercase string', function() {
+            expect(filter('uppercase')('hello')).toEqual('HELLO');
+        });
+
     });
-
-  });
 })();
